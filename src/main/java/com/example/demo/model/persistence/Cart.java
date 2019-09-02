@@ -35,7 +35,7 @@ public class Cart {
 	
 	@OneToOne(mappedBy = "cart")
 	@JsonProperty
-    private User user;
+    private appUser user;
 	
 	@Column
 	@JsonProperty
@@ -49,11 +49,11 @@ public class Cart {
 		this.total = total;
 	}
 
-	public User getUser() {
+	public appUser getUser() {
 		return user;
 	}
 
-	public void setUser(User user) {
+	public void setUser(appUser user) {
 		this.user = user;
 	}
 
