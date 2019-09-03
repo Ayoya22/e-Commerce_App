@@ -53,12 +53,11 @@ public class UserController {
 		appUser user = new appUser();
 		user.setUsername(createUserRequest.getUsername());
 		Cart cart = new Cart();
-		user.setPassword(bCryptPasswordEncoder.encode(createUserRequest.getPassword()));
-
 		if (createUserRequest.getPassword().length() < 5 ||
 				!createUserRequest.getPassword().equals(createUserRequest.getConfirmedPassword())) {
 			return ResponseEntity.badRequest().build();
 		}
+		user.setPassword(bCryptPasswordEncoder.encode(createUserRequest.getPassword()));
 		log.info("User name was set with this value", user.getUsername());
 		cartRepository.save(cart);
 		user.setCart(cart);
