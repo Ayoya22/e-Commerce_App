@@ -93,7 +93,7 @@ public class UserControllerTest {
         when(userRepository.findByUsername(Mockito.anyString())).thenReturn(user);
         when(userRepository.findById(Mockito.anyLong())).thenReturn(Optional.ofNullable(user));
 
-        mockMvc.perform(MockMvcRequestBuilders.get("/api/user/{username}", "Mert")
+        this.mockMvc.perform(MockMvcRequestBuilders.get("/api/user/{username}", "Mert")
                 .accept(MediaType.APPLICATION_JSON).header("Authorization", request.getParameter("Authorization")))
                 .andExpect(status().isOk());
 
